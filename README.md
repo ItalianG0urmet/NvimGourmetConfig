@@ -1,30 +1,45 @@
-# 🧠 My Neovim Configuration
 
-![Screenshot](./screenshot.png)
+# Neovim Config
 
-This is my personal Neovim setup clean, fast, and ready for daily development.  
-It includes everything I need: LSP, autocompletion, formatting, Rust and C/C++ support, fuzzy finding, and debugging.
+A compact Neovim configuration focused on C++ development. Modular, lazy-loaded plugins and LSP support.
 
----
+## Basic dependencies (install before using)
+- Neovim 0.9 or newer  
+- git  
+- ripgrep (`rg`)  
+- fd (or `fd-find`)  
+- Node.js (for some LSP/plugins)  
+- make (for building native extensions like telescope-fzf-native)  
+- clangd (C/C++ language server)  
+- clang-format (formatter)
 
-## ✨ Features
+## Keybindings
+Leader key: `<Space>`
 
-- **Fast startup** with [lazy.nvim](https://github.com/folke/lazy.nvim)
-- **LSP support** via `nvim-lspconfig` and `mason.nvim`
-- **Autocompletion** with `nvim-cmp` and `LuaSnip`
-- **Formatting & linting** (`clang-format`, `clippy`)
-- **Debugging** with `nvim-dap` and `dap-ui`
-- **Rust enhanced** support via `rust-tools.nvim`
-- **Fuzzy finder** powered by `telescope.nvim`
-- **Crate manager** for Rust (`crates.nvim`)
-- **Indent guides**, statusline, bufferline, and more UI polish
-- **Modular plugin** setup for easy customization
+### Normal mode
+- `<Space>d` — Go to definition (LSP)  
+- `<Space>i` — Go to implementation (LSP)  
+- `<Space>r` — Rename symbol (LSP)  
+- `<Space>q` — Code actions (LSP)  
+- `<Tab>` — Next buffer (`:bnext`)  
+- `<S-Tab>` — Previous buffer (`:bprev`)  
+- `<Space>s` — Save buffer (`:w`)  
+- `<Space>e` — Toggle file explorer (NvimTree)  
+- `<Space>cf` — Run clang-format on current buffer (`:ClangFormat`)  
+- `<Space>x` — Close buffer with prompt (custom function: save/close/force-close)  
+- `<Space>f` — Telescope: Find files (mapped to `find_files`)  
+- `<Space>g` — Telescope: Live grep  
+- `<Space>gh` — Open LazyGit (`:LazyGit`)  
+- `<A-t>` (Alt + t) — Toggle floating terminal (toggleterm open mapping)  
 
----
+### Insert / Select mode (completion via nvim-cmp)
+- `<C-Space>` — Trigger completion menu  
+- `<CR>` — Confirm selected completion item  
+- `<Tab>` — If completion visible: select next; else if snippet available: expand/jump; else fallback  
+- `<S-Tab>` — If completion visible: select previous; else if snippet jumpable backwards: jump; else fallback  
 
-## 📁 Plugin Structure
-
-Your plugins are organized under `lua/plugins/` using Lazy's modular approach.
-
-# nvim-config
-# NvimGourmetConfig
+### Dashboard (alpha-nvim) (when dashboard is visible)
+- `e` — Explorer (`:NvimTreeToggle`)  
+- `f` — Find file (`:Telescope find_files`)  
+- `r` — Recent files (`:Telescope oldfiles`)  
+- `q` — Quit (`:qa`)
