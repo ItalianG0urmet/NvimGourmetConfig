@@ -1,0 +1,15 @@
+*.swp
+*.swo
+*.swn
+*~
+*.bak
+*.un~
+
+.cache/
+
+.DS_Store
+.vscode/
+.idea/
+
+.luarc.json
+
