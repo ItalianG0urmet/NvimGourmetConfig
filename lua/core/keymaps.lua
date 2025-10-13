@@ -22,20 +22,20 @@ vim.keymap.set('n', '<leader>cf', ':ClangFormat<CR>', { noremap = true })
 
 -- Buffer close with prompt
 vim.keymap.set("n", "<leader>x", function()
-  local bufnr = vim.api.nvim_get_current_buf()
-  if vim.bo.modified and vim.fn.bufname(bufnr) ~= "" then
-    local choice = vim.fn.confirm(
-      "Save buffer?",
-      "&Yes\n&No\n&Back", 1
-    )
-    if choice == 1 then
-      vim.cmd("write")
-      vim.cmd("bd")
-    elseif choice == 2 then
-      vim.cmd("bd!")
+    local bufnr = vim.api.nvim_get_current_buf()
+    if vim.bo.modified and vim.fn.bufname(bufnr) ~= "" then
+        local choice = vim.fn.confirm(
+            "Save buffer?",
+            "&Yes\n&No\n&Back", 1
+        )
+        if choice == 1 then
+            vim.cmd("write")
+            vim.cmd("bd")
+        elseif choice == 2 then
+            vim.cmd("bd!")
+        end
+    else
+        vim.cmd("bd")
     end
-  else
-    vim.cmd("bd")
-  end
 end, { desc = "Options to close the buffer" })
 
