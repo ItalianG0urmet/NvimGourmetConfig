@@ -1,4 +1,4 @@
--- core/lazy.lua: bootstrapping lazy.nvim and import plugins
+-- core/lazy.lua: bootstrapping lazy.nvim and import plugins 
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not vim.loop.fs_stat(lazypath) then
   vim.fn.system({
@@ -14,9 +14,18 @@ require("lazy").setup(
     { import = "plugins" },
   },
   {
+    defaults = { lazy = true },
+
+    install = {
+      colorscheme = { "citruszest" },
+    },
+
     performance = {
       rtp = {
-        disabled_plugins = { "gzip", "netrwPlugin", "tarPlugin", "tohtml", "getscriptPlugin" },
+        disabled_plugins = {
+          "gzip", "matchit", "matchparen", "tarPlugin", "zipPlugin",
+          "tohtml", "getscriptPlugin",
+        },
       },
     },
   }

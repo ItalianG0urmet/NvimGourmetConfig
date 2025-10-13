@@ -33,9 +33,12 @@ o.incsearch    = true
 o.hlsearch     = true
 
 -- other
-o.updatetime = 500
 o.scrolloff    = 5
 o.mouse        = "a"
 o.clipboard    = "unnamedplus"
 o.backspace    = { "indent", "eol", "start" }
+o.timeoutlen = 300
+o.ttimeoutlen = 10
+o.updatetime = 300
+
 

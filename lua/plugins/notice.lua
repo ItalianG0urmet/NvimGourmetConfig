@@ -1,6 +1,7 @@
 -- plugins/notice.lua
 return {
   "folke/noice.nvim",
+  event = "VimEnter",
   dependencies = {
     "MunifTanjim/nui.nvim",
     "rcarriga/nvim-notify",

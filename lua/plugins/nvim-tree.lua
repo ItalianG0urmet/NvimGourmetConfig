@@ -2,7 +2,8 @@
 return {
   "nvim-tree/nvim-tree.lua",
   version = "*",
-  lazy = false,
+  lazy = true,
+  cmd = { "NvimTreeToggle", "NvimTreeOpen", "NvimTreeFindFile" },
   dependencies = { "nvim-tree/nvim-web-devicons" },
   config = function()
     local width = math.floor(vim.o.columns * 0.20)

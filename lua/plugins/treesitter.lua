@@ -12,6 +12,9 @@ return {
         "json", "yaml", "cmake", "kotlin", "groovy", "asm",
       },
       auto_install = true,
+      disable = function(lang, buf)
+        return vim.api.nvim_buf_line_count(buf) > 20000
+      end,
       ignore_install = {},
     }
   end,

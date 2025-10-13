@@ -1,10 +1,7 @@
 -- plugins/mason.lua
 return {
   "williamboman/mason.nvim",
-  dependencies = {
-    "williamboman/mason-lspconfig.nvim",
-    "williamboman/mason-null-ls.nvim",
-  },
+  cmd = { "Mason", "MasonInstall", "MasonUninstall", "MasonUpdate", "MasonLog" },
   config = function()
     require("mason").setup()
     require("mason-lspconfig").setup({

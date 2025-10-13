@@ -1,7 +1,9 @@
 -- plugins/lsp.lua
 return {
   "neovim/nvim-lspconfig",
+  event = { "BufReadPre", "BufNewFile", "LspAttach" },
   dependencies = {
+    "williamboman/mason.nvim",   
     "williamboman/mason-lspconfig.nvim",
     "hrsh7th/cmp-nvim-lsp",
     "mfussenegger/nvim-jdtls",

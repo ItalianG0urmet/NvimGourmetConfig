@@ -2,12 +2,12 @@
 
 vim.g.mapleader = " "
 
--- Coc LSP
+-- LSP
 local opts = { silent = true, noremap = true }
-vim.keymap.set("n", "<leader>d", vim.lsp.buf.definition, opts)
-vim.keymap.set("n", "<leader>i", vim.lsp.buf.implementation, opts)
-vim.keymap.set("n", "<leader>r", vim.lsp.buf.rename, opts)
-vim.keymap.set("n", "<leader>q", vim.lsp.buf.code_action, opts)
+vim.keymap.set("n", "<leader>d", function() vim.lsp.buf.definition() end, opts)
+vim.keymap.set("n", "<leader>i", function() vim.lsp.buf.implementation() end, opts)
+vim.keymap.set("n", "<leader>r", function() vim.lsp.buf.rename() end, opts)
+vim.keymap.set("n", "<leader>q", function() vim.lsp.buf.code_action() end, opts)
 
 -- buffer navigation and save
 vim.keymap.set('n', '<Tab>', ':bnext<CR>', { noremap = true, silent = true })
