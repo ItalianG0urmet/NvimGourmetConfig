@@ -12,7 +12,7 @@ o.fillchars = { eob = ' ' }
 
 -- editor UI
 o.number       = true
-o.relativenumber = false
+o.relativenumber = true
 o.showcmd      = true
 o.showmatch    = true
 o.wildmenu     = true
@@ -40,5 +40,4 @@ o.backspace    = { "indent", "eol", "start" }
 o.timeoutlen = 300
 o.ttimeoutlen = 10
 o.updatetime = 300
-
-
+vim.lsp.set_log_level("off")
