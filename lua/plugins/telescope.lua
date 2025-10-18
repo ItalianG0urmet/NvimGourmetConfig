@@ -43,7 +43,7 @@ return {
 
                 path_display = { "tail" },
 
-                prompt_prefix = "🔎 ",
+                prompt_prefix = "> ",
 
                 layout_config = {
                     horizontal = {
@@ -57,6 +57,7 @@ return {
             pickers = {
                 find_files = {
                     find_command = find_cmd,
+                    theme = "dropdown",
                     previewer = false,
                 },
 
