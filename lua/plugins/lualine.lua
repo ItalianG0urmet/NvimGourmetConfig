@@ -44,26 +44,12 @@ return {
         end
 
         local function get_git_ahead_behind_info()
-            async_git_status_update()
-
-            local status = git_status_cache
-            if not status then
+            local ok, result = pcall(vim.fn.system, "git rev-list --left-right --count HEAD...@{u} 2>/dev/null")
+            if not ok or result == "" then
                 return ""
             end
-
-            local msg = ""
-
-            if type(status.ahead_count) == "number" and status.ahead_count > 0 then
-                local ahead_str = string.format("↑[%d] ", status.ahead_count)
-                msg = msg .. ahead_str
-            end
-
-            if type(status.behind_count) == "number" and status.behind_count > 0 then
-                local behind_str = string.format("↓[%d] ", status.behind_count)
-                msg = msg .. behind_str
-            end
-
-            return msg
+            local ahead, behind = result:match("(%d+)%s+(%d+)")
+            return string.format("↑%s↓%s", ahead, behind)
         end
 
         local function spell()
@@ -180,7 +166,7 @@ return {
                         color = { gui = "italic,bold" },
                     },
                     {
-                        get_git_ahead_behind_info,
+                        gaet_git_ahead_behind_info,
                         color = { fg = "#E0C479" },
                     },
                     {
