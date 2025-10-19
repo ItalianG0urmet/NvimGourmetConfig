@@ -9,7 +9,7 @@ return {
             indent    = { enable = true },
             ensure_installed = {
                 "c", "cpp", "java", "rust", "python", "lua", "bash",
-                "json", "yaml", "cmake", "kotlin", "groovy", "asm",
+                "json", "yaml", "cmake", "kotlin", "groovy", "asm", "regex",
             },
             auto_install = true,
             disable = function(lang, buf)

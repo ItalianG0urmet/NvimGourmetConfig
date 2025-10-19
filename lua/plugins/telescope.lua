@@ -94,11 +94,11 @@ return {
         local tele = require("telescope.builtin")
         vim.keymap.set("n", "<leader>f", function()
             tele.find_files({ previewer = false })
-        end, { desc = "Telescope Find Files (fast)" })
+        end, { desc = "Telescope Find Files" })
 
         vim.keymap.set("n", "<leader>g", function()
             tele.live_grep({ previewer = false })
-        end, { desc = "Telescope Live Grep (fast)" })
+        end, { desc = "Telescope Live Grep" })
     end,
 }
 
