@@ -5,7 +5,7 @@ return {
         "c", "cpp", "objc", "objcpp",
         "java", "rust", "python", "lua",
         "sh", "bash", "json", "yaml",
-        "cmake", "kotlin", "groovy"
+        "cmake", "kotlin"
     },
     dependencies = {
         "hrsh7th/cmp-nvim-lsp",
@@ -52,7 +52,14 @@ return {
             yamlls = { filetypes = { "yaml" } },
             cmake = { filetypes = { "cmake" } },
             kotlin_language_server = { filetypes = { "kotlin" } },
-            groovyls = { filetypes = { "groovy" } },
+            groovyls = {
+                filetypes = { "groovy" },
+                root_dir = function(fname)
+                    return require("lspconfig.util").root_pattern("build.gradle", "settings.gradle", ".git")(fname)
+                        or vim.fn.getcwd()
+                end,
+            },
+
         }
 
         local ft_to_server = {}

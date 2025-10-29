@@ -26,7 +26,6 @@ return {
                 "yamlls",
                 "cmake",
                 "kotlin_language_server",
-                "groovyls",
             },
             automatic_installation = true,
         })
