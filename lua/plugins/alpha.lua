@@ -8,16 +8,23 @@ return {
         local dashboard = require("alpha.themes.dashboard")
 
         dashboard.section.header.val = {
-            "  ░██████                                                               ░██    ",
-            " ░██   ░██                                                              ░██    ",
-            "░██         ░███████  ░██    ░██ ░██░████ ░█████████████   ░███████  ░████████ ",
-            "░██  █████ ░██    ░██ ░██    ░██ ░███     ░██   ░██   ░██ ░██    ░██    ░██    ",
-            "░██     ██ ░██    ░██ ░██    ░██ ░██      ░██   ░██   ░██ ░█████████    ░██    ",
-            " ░██  ░███ ░██    ░██ ░██   ░███ ░██      ░██   ░██   ░██ ░██           ░██    ",
-            "  ░█████░█  ░███████   ░█████░██ ░██      ░██   ░██   ░██  ░███████      ░████ ",
-            "                                                                                ",
-            "                                                                            ",
+            '                                                                             I8   ',
+            '                                                                             I8   ',
+            '                                                                          88888888',
+            '                                                                             I8   ',
+            '   ,gggg,gg    ,ggggg,   gg      gg   ,gggggg,   ,ggg,,ggg,,ggg,    ,ggg,    I8   ',
+            '  dP"  "Y8I   dP"  "Y8gggI8      8I   dP""""8I  ,8" "8P" "8P" "8,  i8" "8i   I8   ',
+            ' i8\'    ,8I  i8\'    ,8I  I8,    ,8I  ,8\'    8I  I8   8I   8I   8I  I8, ,8I  ,I8,  ',
+            ',d8,   ,d8I ,d8,   ,d8\' ,d8b,  ,d8b,,dP     Y8,,dP   8I   8I   Yb, `YbadP\' ,d88b, ',
+            'P"Y8888P"888P"Y8888P"   8P\'"Y88P"`Y88P      `Y88P\'   8I   8I   `Y8888P"Y8888P""Y8 ',
+            '       ,d8I\'                                                                      ',
+            '     ,dP\'8I                                                                       ',
+            '    ,8"  8I                                                                       ',
+            '    I8   8I                                                                       ',
+            '    `8, ,8I                                                                       ',
+            '     `Y8P"                                                                        ',
         }
+
 
         local function get_recent_projects(max_count)
             max_count = max_count or 6
@@ -84,7 +91,7 @@ return {
         dashboard.section.footer.val = {
             " ",
             " ",
-            "Let's all love Lain",
+            "Lain is god and chatgpt is satan",
         }
 
         dashboard.config.layout = {
