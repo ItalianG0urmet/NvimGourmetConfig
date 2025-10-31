@@ -11,13 +11,9 @@ return {
 
         require("noice").setup({
             lsp = {
-                override = {
-                    ["vim.lsp.util.convert_input_to_markdown_lines"] = true,
-                    ["vim.lsp.util.stylize_markdown"] = true,
-                    ["cmp.entry.get_documentation"] = true,
-                },
+                hover = { enabled = true },
+                signature = { enabled = false },
             },
-
             presets = {
                 bottom_search = true,
                 command_palette = true,
@@ -25,20 +21,6 @@ return {
                 inc_rename = false,
                 lsp_doc_border = false,
             },
-
-
-
-            routes = {
-                {
-                    view = "notify",
-                    filter = {
-                        event = "msg_showmode",
-                        find = "recording",
-                    },
-                },
-            },
-
-
             cmdline = {
                 format = {
                     cmdline = { icon = ">" },
