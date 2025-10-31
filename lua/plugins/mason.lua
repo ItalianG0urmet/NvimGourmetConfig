@@ -1,7 +1,7 @@
 -- plugins/mason.lua
 return {
     "williamboman/mason.nvim",
-    event = "VeryLazy",
+    cmd = { "Mason", "MasonInstall", "MasonUpdate", "MasonUninstall" },
     dependencies = {
         "williamboman/mason-lspconfig.nvim",
     },
@@ -14,7 +14,13 @@ return {
 
         mason.setup()
 
-        require("mason-lspconfig").setup({
+        local mlc_ok, mlc = pcall(require, "mason-lspconfig")
+        if not mlc_ok then
+            vim.notify("mason-lspconfig non trovato", vim.log.levels.WARN)
+            return
+        end
+
+        mlc.setup({
             ensure_installed = {
                 "clangd",
                 "jdtls",
@@ -27,7 +33,7 @@ return {
                 "cmake",
                 "kotlin_language_server",
             },
-            automatic_installation = true,
+            automatic_installation = false,
         })
     end,
 }

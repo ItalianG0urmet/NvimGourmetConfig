@@ -16,13 +16,12 @@ return {
         require("luasnip.loaders.from_vscode").lazy_load()
 
         cmp.setup({
+            completion = {
+                keyword_length = 2,
+            },
             window = {
-                completion = cmp.config.window.bordered({
-                    border = "rounded",
-                }),
-                documentation = cmp.config.window.bordered({
-                    border = "rounded",
-                }),
+                completion = cmp.config.window.bordered({ border = "rounded" }),
+                documentation = cmp.config.window.bordered({ border = "rounded" }),
             },
             snippet = {
                 expand = function(args)
@@ -54,7 +53,14 @@ return {
             sources = cmp.config.sources({
                 { name = "nvim_lsp" },
                 { name = "luasnip" },
-                { name = "buffer" },
+                {
+                    name = "buffer",
+                    option = {
+                        get_bufnrs = function()
+                            return { vim.api.nvim_get_current_buf() }
+                        end,
+                    },
+                },
                 { name = "path" },
             }),
             performance = {

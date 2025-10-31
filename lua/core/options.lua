@@ -54,10 +54,10 @@ o.smartcase   = true
 o.incsearch   = true
 o.hlsearch    = true
 
--- Performance / Timing 
-o.timeoutlen  = 500
+-- Performance 
+o.timeoutlen  = 180
 o.ttimeoutlen = 10
-o.updatetime  = 500
+o.updatetime  = 200
 o.scrolloff   = 5
 
 -- Editing Behavior
