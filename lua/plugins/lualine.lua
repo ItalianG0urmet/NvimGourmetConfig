@@ -6,52 +6,6 @@ return {
     config = function()
         local fn = vim.fn
 
-        local git_status_cache = {}
-
-        local on_exit_fetch = function(result)
-            if result.code == 0 then
-                git_status_cache.fetch_success = true
-            end
-        end
-
-        local function handle_numeric_result(cache_key)
-            return function(result)
-                if result.code == 0 then
-                    git_status_cache[cache_key] = tonumber(result.stdout:match("(%d+)")) or 0
-                end
-            end
-        end
-
-        local async_cmd = function(cmd_str, on_exit)
-            local cmd = vim.tbl_filter(function(element)
-                return element ~= ""
-            end, vim.split(cmd_str, " "))
-
-            vim.system(cmd, { text = true }, on_exit)
-        end
-
-        local async_git_status_update = function()
-            async_cmd("git fetch origin", on_exit_fetch)
-            if not git_status_cache.fetch_success then
-                return
-            end
-
-            local behind_cmd_str = "git rev-list --count HEAD..@{upstream}"
-            async_cmd(behind_cmd_str, handle_numeric_result("behind_count"))
-
-            local ahead_cmd_str = "git rev-list --count @{upstream}..HEAD"
-            async_cmd(ahead_cmd_str, handle_numeric_result("ahead_count"))
-        end
-
-        local function get_git_ahead_behind_info()
-            local ok, result = pcall(vim.fn.system, "git rev-list --left-right --count HEAD...@{u} 2>/dev/null")
-            if not ok or result == "" then
-                return ""
-            end
-            local ahead, behind = result:match("(%d+)%s+(%d+)")
-            return string.format("↑%s↓%s", ahead, behind)
-        end
-
         local function spell()
             if vim.o.spell then
                 return string.format("[SPELL]")
