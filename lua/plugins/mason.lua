@@ -8,7 +8,7 @@ return {
     config = function()
         local mason_ok, mason = pcall(require, "mason")
         if not mason_ok then
-            vim.notify("mason.nvim non trovato", vim.log.levels.ERROR)
+            vim.notify("mason.nvim not found", vim.log.levels.ERROR)
             return
         end
 
@@ -16,7 +16,7 @@ return {
 
         local mlc_ok, mlc = pcall(require, "mason-lspconfig")
         if not mlc_ok then
-            vim.notify("mason-lspconfig non trovato", vim.log.levels.WARN)
+            vim.notify("mason-lspconfig not found", vim.log.levels.WARN)
             return
         end
 
