@@ -79,9 +79,46 @@ return {
             dashboard.button('q', '󰿅  Quit', '<cmd>q<CR>'),
         }
 
-        dashboard.section.footer.val = {
-            '', 'Lain will always be god'
+
+        local footer_text
+        if vim.fn.executable("fortune") == 1 then
+            local fortune = ""
+            local attempt = 0
+
+            while attempt < 5 do
+                local handle = io.popen("fortune -s")
+                local output = handle:read("*a")
+                handle:close()
+
+                local lines = vim.split(output, "\n", { trimempty = true })
+                if #lines > 0 and #lines <= 2 then
+                    fortune = output
+                    break
+                end
+                attempt = attempt + 1
+            end
+
+            if fortune == "" then
+                local handle = io.popen("fortune -s")
+                fortune = handle:read("*a")
+                handle:close()
+            end
+
+            footer_text = vim.split(fortune, "\n", { trimempty = true })
+        else
+            footer_text = {
+                "",
+                "Lain will always be god",
+            }
+        end
+
+        dashboard.section.footer.val = footer_text
+        dashboard.section.footer.opts = {
+            position = "center",
+            hl = "AlphaPurple",
         }
+
+
 
         dashboard.opts.opts.noautocmd = true
         alpha.setup(dashboard.opts)
