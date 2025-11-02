@@ -13,6 +13,10 @@ return {
             float_opts = {
                 border = "rounded",
             },
+
+            dir = function()
+                return vim.fn.getcwd()
+            end,
         }
     end,
 }
