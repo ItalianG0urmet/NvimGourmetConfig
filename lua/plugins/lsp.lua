@@ -20,6 +20,7 @@ return {
             update_in_insert = false,
         })
 
+        vim.lsp.handlers["$/progress"] = function(_, _, _, _) end
         vim.lsp.handlers["textDocument/hover"] =
         vim.lsp.with(vim.lsp.handlers.hover, { border = "rounded" })
         vim.lsp.handlers["textDocument/signatureHelp"] =
