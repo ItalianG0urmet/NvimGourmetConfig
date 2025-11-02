@@ -21,7 +21,6 @@ vim.keymap.set("n", "<leader>p", ":Telescope projects<CR>", vim.tbl_extend("forc
 -- General utils
 vim.keymap.set("n", "<leader>h", ":LazyGit<CR>", vim.tbl_extend("force", opts, { desc = "Open Git interface" }))
 vim.keymap.set("n", "<leader>/", ":nohlsearch<CR>", vim.tbl_extend("force", opts, { desc = "Clear search highlight" }))
-vim.keymap.set("n", "<leader>oh", ":Alpha<CR>", vim.tbl_extend("force", opts, { desc = "Open dashboard" }))
 
 -- ToggleTerm
 vim.keymap.set("n", "<A-t>", ":ToggleTerm<CR>", vim.tbl_extend("force", opts, { desc = "Toggle terminal" }))
