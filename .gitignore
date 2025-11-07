@@ -5,6 +5,7 @@
 *.bak
 *.un~
 
+workspace/
 .cache/
 
 .DS_Store
