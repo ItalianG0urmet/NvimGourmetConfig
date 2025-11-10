@@ -14,31 +14,6 @@ return {
             return ""
         end
 
-        local function trailing_space()
-            if not vim.o.modifiable then
-                return ""
-            end
-
-            local line_num = nil
-
-            for i = 1, fn.line("$") do
-                local linetext = fn.getline(i)
-                local idx = fn.match(linetext, [[\v\s+$]])
-
-                if idx ~= -1 then
-                    line_num = i
-                    break
-                end
-            end
-
-            local msg = ""
-            if line_num ~= nil then
-                msg = string.format("[%d]trailing", line_num)
-            end
-
-            return msg
-        end
-
         local function mixed_indent()
             if not vim.o.modifiable then
                 return ""
@@ -120,10 +95,6 @@ return {
                         color = { gui = "italic,bold" },
                     },
                     {
-                        gaet_git_ahead_behind_info,
-                        color = { fg = "#E0C479" },
-                    },
-                    {
                         "diff",
                         source = diff,
                     },
@@ -143,10 +114,6 @@ return {
                         "diagnostics",
                         sources = { "nvim_diagnostic" },
                         symbols = { error = "🆇 ", warn = "⚠️ ", info = "ℹ️ ", hint = " " },
-                    },
-                    {
-                        trailing_space,
-                        color = "WarningMsg",
                     },
                     {
                         mixed_indent,
